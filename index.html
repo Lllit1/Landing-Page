@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dress Shop</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Link to the CSS file -->
+  </head>
+  <body>
+    <header>
+      <div class="logo">Dress Shop</div>
+      <nav>
+        <ul>
+          <li>
+            <a href="javascript:void(0);" onclick="showSection('home')">Home</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" onclick="showSection('products')"
+              >Products</a
+            >
+          </li>
+          <li>
+            <a href="javascript:void(0);" onclick="showSection('reviews')"
+              >Product Reviews</a
+            >
+          </li>
+          <li>
+            <a href="javascript:void(0);" onclick="showSection('bag')"
+              >Shopping Bag (<span id="bag-count">0</span>)</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home" class="active">
+      <div class="hero">
+        <img src="https://www.shutterstock.com/image-illustration/watercolor-fashion-illustration-elegant-dress-260nw-658310050.jpg" alt="Hero Image" class="hero-image">
+        <h1>Discover Your Perfect Dress</h1>
+        <p>Find the best dresses at amazing prices!</p>
+        <button class="btn" onclick="showSection('products')">Shop Now</button>
+      </div>
+    </section>
+
+    <section id="products">
+      <h2>Our Dresses</h2>
+      <input type="text" id="search" placeholder="Search for dresses..." onkeyup="filterProducts()">
+      <div class="products" id="products-list">
+          
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/NALF-WD82_V1.jpg" alt="Dress 1">
+              <h3>Elegant Evening Dress</h3>
+              <p class="description">A beautiful evening dress perfect for formal events.</p>
+              <p class="price">$49.99</p>
+              <div class="ratings">⭐⭐⭐⭐☆ (4/5)</div>
+              <div class="size-selection">
+                  <label for="size1">Size:</label>
+                  <select id="size1" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Elegant Evening Dress', 49.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/LNCF-WD154_V1.jpg" alt="Dress 2">
+              <h3>Casual Summer Dress</h3>
+              <p class="description">Stay cool and stylish with this casual summer dress.</p>
+              <p class="price">$39.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size2">Size:</label>
+                  <select id="size2" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Casual Summer Dress', 39.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/MUGL-WS125_V4.jpg" alt="Dress 3">
+              <h3>Formal Business Dress</h3>
+              <p class="description">A stylish dress that is perfect for a formal business setting.</p>
+              <p class="price">$59.99</p>
+              <div class="ratings">⭐⭐⭐⭐☆ (4/5)</div>
+              <div class="size-selection">
+                  <label for="size3">Size:</label>
+                  <select id="size3" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Formal Business Dress', 59.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/SIF-WD134_V1.jpg" alt="Dress 4">
+              <h3>Floral Maxi Dress</h3>
+              <p class="description">Enjoy summer blooms in this beautiful floral maxi dress.</p>
+              <p class="price">$44.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size4">Size:</label>
+                  <select id="size4" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Floral Maxi Dress', 44.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/MUGL-WD154_V1.jpg" alt="Dress 5">
+              <h3>Little Black Dress</h3>
+              <p class="description">Every wardrobe needs a timeless little black dress.</p>
+              <p class="price">$29.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size5">Size:</label>
+                  <select id="size5" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Little Black Dress', 29.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/PTAB-WD300_V1.jpg" alt="Dress 6">
+              <h3>Beach Cover-Up</h3>
+              <p class="description">Perfect for the beach, this cover-up is both stylish and practical.</p>
+              <p class="price">$34.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size6">Size:</label>
+                  <select id="size6" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Beach Cover-Up', 34.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/VSAC-WD160_V1.jpg" alt="Dress 7">
+              <h3>Party Cocktail Dress</h3>
+              <p class="description">Stand out at any party with this stunning cocktail dress.</p>
+              <p class="price">$79.99</p>
+              <div class="ratings">⭐⭐⭐⭐☆ (4/5)</div>
+              <div class="size-selection">
+                  <label for="size7">Size:</label>
+                  <select id="size7" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Party Cocktail Dress', 79.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/LPAR-WD822_V1.jpg" alt="Dress 8">
+              <h3>Summer Sundress</h3>
+              <p class="description">This sundress is perfect for warm summer days.</p>
+              <p class="price">$39.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size8">Size:</label>
+                  <select id="size8" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Summer Sundress', 39.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/ZMER-WD724_V1.jpg" alt="Dress 9">
+              <h3>Retro Polka Dot Dress</h3>
+              <p class="description">Bring back the classics with this retro polka dot dress.</p>
+              <p class="price">$49.99</p>
+              <div class="ratings">⭐⭐⭐⭐☆ (4/5)</div>
+              <div class="size-selection">
+                  <label for="size9">Size:</label>
+                  <select id="size9" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Retro Polka Dot Dress', 49.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/MNSF-WD83_V1.jpg" alt="Dress 10">
+              <h3>Classic Denim Dress</h3>
+              <p class="description">A versatile denim dress for casual outings.</p>
+              <p class="price">$54.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size10">Size:</label>
+                  <select id="size10" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Classic Denim Dress', 54.99)">Add to Cart</button>
+          </div>
+  
+          <!-- Additional Products (11 to 20) -->
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/AALO-WD4_V2.jpg" alt="Dress 11">
+              <h3>Gala Evening Gown</h3>
+              <p class="description">Make a statement with this stunning gala evening gown.</p>
+              <p class="price">$129.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size11">Size:</label>
+                  <select id="size11" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Gala Evening Gown', 129.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/MTEF-WD104_V1.jpg" alt="Dress 12">
+              <h3>Chic Shift Dress</h3>
+              <p class="description">A modern shift dress for your daily needs.</p>
+              <p class="price">$49.99</p>
+              <div class="ratings">⭐⭐⭐⭐☆ (4/5)</div>
+              <div class="size-selection">
+                  <label for="size12">Size:</label>
+                  <select id="size12" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Chic Shift Dress', 49.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/TSEX-WD118_V2.jpg" alt="Dress 13">
+              <h3>Layered Ruffle Dress</h3>
+              <p class="description">Twirl in style with this layered ruffle dress.</p>
+              <p class="price">$55.99</p>
+              <div class="ratings">⭐⭐⭐⭐☆ (4/5)</div>
+              <div class="size-selection">
+                  <label for="size13">Size:</label>
+                  <select id="size13" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Layered Ruffle Dress', 55.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/ALXF-WD515_V1.jpg" alt="Dress 14">
+              <h3>Garden Picnic Dress</h3>
+              <p class="description">Perfect for picnics, this dress is breezy and fun!</p>
+              <p class="price">$39.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size14">Size:</label>
+                  <select id="size14" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Garden Picnic Dress', 39.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/SOYA-WS141_V4.jpg" alt="Dress 15">
+              <h3>Off-Shoulder Dress</h3>
+              <p class="description">Show off your style with this trendy off-shoulder dress.</p>
+              <p class="price">$44.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size15">Size:</label>
+                  <select id="size15" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Off-Shoulder Dress', 44.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/ALIA-WD194_V1.jpg" alt="Dress 16">
+              <h3>Pleated Midi Dress</h3>
+              <p class="description">This pleated midi dress is elegant and versatile.</p>
+              <p class="price">$59.99</p>
+              <div class="ratings">⭐⭐⭐⭐☆ (4/5)</div>
+              <div class="size-selection">
+                  <label for="size16">Size:</label>
+                  <select id="size16" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Pleated Midi Dress', 59.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/FLEF-WD128_V1.jpg" alt="Dress 17">
+              <h3>Lace Spaghetti Strap Dress</h3>
+              <p class="description">A delicate lace spaghetti strap dress for a feminine look.</p>
+              <p class="price">$64.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size17">Size:</label>
+                  <select id="size17" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Lace Spaghetti Strap Dress', 64.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/ESCF-WD14_V2.jpg" alt="Dress 18">
+              <h3>Bohemian Maxi Dress</h3>
+              <p class="description">Embrace your free spirit in this bohemian maxi dress.</p>
+              <p class="price">$74.99</p>
+              <div class="ratings">⭐⭐⭐⭐☆ (4/5)</div>
+              <div class="size-selection">
+                  <label for="size18">Size:</label>
+                  <select id="size18" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Bohemian Maxi Dress', 74.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/CLNC-WD187_V1.jpg" alt="Dress 19">
+              <h3>Kimono Sleeve Dress</h3>
+              <p class="description">A stylish kimono sleeve dress that's perfect for layering.</p>
+              <p class="price">$39.99</p>
+              <div class="ratings">⭐⭐⭐⭐⭐ (5/5)</div>
+              <div class="size-selection">
+                  <label for="size19">Size:</label>
+                  <select id="size19" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Kimono Sleeve Dress', 39.99)">Add to Cart</button>
+          </div>
+  
+          <div class="product-card">
+              <img src="https://is4.fwrdassets.com/images/p/fw/z/JSIM-WD611_V1.jpg" alt="Dress 20">
+              <h3>Utility Shirt Dress</h3>
+              <p class="description">This utility shirt dress combines comfort and style.</p>
+              <p class="price">$49.99</p>
+              <div class="ratings">⭐⭐⭐⭐☆ (4/5)</div>
+              <div class="size-selection">
+                  <label for="size20">Size:</label>
+                  <select id="size20" class="size-select">
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                  </select>
+              </div>
+              <button class="btn" onclick="addToBag('Utility Shirt Dress', 49.99)">Add to Cart</button>
+          </div>
+          
+      </div>
+  </section>
+
+    <section id="bag">
+      <h2>Your Shopping Bag</h2>
+      <div class="bag-items" id="bag-items">
+        <p id="empty-bag" style="display: none">Your shopping bag is empty.</p>
+        <ul id="bag-list"></ul>
+      </div>
+      <div class="bag-total">
+        <h3>Total: $<span id="total-price">0.00</span></h3>
+        <button class="btn" onclick="checkout()">Checkout</button>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <h2>Product Reviews</h2>
+      <div class="reviews">
+        <div class="review">
+          <h3>Jane Doe</h3>
+          <p>
+            "I love my Elegant Evening Dress! It fits perfectly and looks
+            stunning."
+          </p>
+        </div>
+        <div class="review">
+          <h3>Mary Smith</h3>
+          <p>
+            "The Casual Summer Dress is my go-to outfit for outings. Highly
+            recommend!"
+          </p>
+        </div>
+        <div class="review">
+          <h3>Lisa Johnson</h3>
+          <p>
+            "Great quality and beautiful designs. Will definitely shop here
+            again!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content"
+        <p>Designed by Rohan&Vea.</p>
+        <div class="contact-info">
+          <p>Contact us: amazingDress@example.com | (123) 456-7890</p>
+        </div>
+        <div class="social-media">
+          <a href="#" aria-label="Facebook"><span>📘</span></a>
+          <a href="#" aria-label="Twitter"><span>🐦</span></a>
+          <a href="#" aria-label="Instagram"><span>📸</span></a>
+          <a href="#" aria-label="LinkedIn"><span>💼</span></a>
+        </div>
+        <div class="legal-links">
+          <a href="#">Terms & Conditions</a> |
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+      <p>© 2023 Dress Shop. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      let bag = [];
+      let total = 0;
+
+      function showSection(sectionId) {
+        const sections = document.querySelectorAll("section");
+        sections.forEach((section) => {
+          section.classList.remove("active"); // Hide all sections
+        });
+        document.getElementById(sectionId).classList.add("active"); // Show the selected section
+      }
+
+      function filterProducts() {
+        const input = document.getElementById("search").value.toLowerCase();
+        const products = document.querySelectorAll(".product-card");
+
+        products.forEach((product) => {
+          const title = product.querySelector("h3").innerText.toLowerCase();
+          product.style.display = title.includes(input) ? "block" : "none";
+        });
+      }
+
+      function addToBag(name, price) {
+        bag.push({ name, price });
+        total += price;
+        document.getElementById("bag-count").innerText = bag.length;
+        updateBagDisplay();
+      }
+
+      function updateBagDisplay() {
+        const bagList = document.getElementById("bag-list");
+        const totalPrice = document.getElementById("total-price");
+        const emptyBagMessage = document.getElementById("empty-bag");
+
+        bagList.innerHTML = "";
+
+        if (bag.length === 0) {
+          emptyBagMessage.style.display = "block";
+          totalPrice.innerText = "0.00";
+        } else {
+          emptyBagMessage.style.display = "none";
+          bag.forEach((item) => {
+            const listItem = document.createElement("li");
+            listItem.innerText = `${item.name} - $${item.price.toFixed(2)}`;
+            bagList.appendChild(listItem);
+          });
+          totalPrice.innerText = total.toFixed(2);
+        }
+      }
+
+      function checkout() {
+        alert(`Total amount to be paid: $${total.toFixed(2)}`);
+        // Reset the bag after checkout
+        bag = [];
+        total = 0;
+        updateBagDisplay();
+        document.getElementById("bag-count").innerText = 0;
+      }
+
+      window.onload = function () {
+        showSection("home"); // Show the home section on page load
+      };
+    </script>
+  </body>
+</html>
